@@ -15,7 +15,8 @@
 	.fl{float:left;}
 	.fr{float:right;}
     .clearfix:after{content:" ";display:block;clear:both;}
-	
+
+	/*main start*/
 	.main{width:90%;height:500px;background:#aaa;margin:50px auto;}
 	.main .input{width:40%;margin:5%;height:400px;background:#fff;}
     .main .input textarea{width:90%;margin:5%;resize:no;padding:10px;height:300px;}
@@ -30,21 +31,21 @@
 		.main .input{width:90%;}
 		.main .qrcode{width:90%;}
 	}
+	/*end main*/
   </style>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css"/>
 </head>
 <body>
    <div class="main">
-	<section class="input fl">
+	<div class="input fl">
 		<textarea id="content">请输入网址或文本。。</textarea>
-
 		<input type="button" value="生成二维码" id="btn"/>
-	</section>
-	<section class="qrcode fr">
+	</div>
+	<div class="qrcode fr">
 		<div id="qrcode_img">
 			<p>左侧输入内容<br>点击生成二维码</p>
 		</div>
-	</section>
+	</div>
    </div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
    <script>

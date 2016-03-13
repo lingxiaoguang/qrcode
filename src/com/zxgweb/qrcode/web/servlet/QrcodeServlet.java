@@ -26,8 +26,8 @@ public class QrcodeServlet extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException ,IOException {
-		//获取文本内容
-		String str = request.getParameter("str");
+		//获取文本内容，并转换编码
+		String str = new String(request.getParameter("str").getBytes("iso8859-1"),"UTF-8");
 		//生成文件名
 		String imgName="qrcode"+UUID.randomUUID()+".jpg";
 		//生成二维码图片，并写到输出流中

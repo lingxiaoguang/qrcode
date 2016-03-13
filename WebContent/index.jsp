@@ -49,27 +49,9 @@
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
    <script>
 		$("#btn").click(function(){
-			$.ajax({
-				url:"${pageContext.request.contextPath}/generate",
-				data:{"str":$("#content").val()},
-				success:function(data){
-					$("#qrcode_img").html('<img src="${pageContext.request.contextPath}/images/'+data+'" class="animated bounceIn"/>');
-					setTimeout(function(){
-						deleteImg(data);
-				    }, 5000)
-				},
-				error:function(e){
-					alert("二维码生成失败！");	
-				}
-			 }
-			);
+			var content=$("#content").html();
+			$("#qrcode_img").html('<img src="${pageContext.request.contextPath}/generate?str='+content+'&date='+new Date()+'" class="animated bounceIn"/>');
 		});
-		function deleteImg(img){
-			$.ajax({
-				url:"${pageContext.request.contextPath}/deleteImg",
-				data:{"img":img}
-			});
-		}
    </script>
 </body>
 </html>

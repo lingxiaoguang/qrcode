@@ -30,10 +30,8 @@ public class QrcodeServlet extends HttpServlet{
 		String str = request.getParameter("str");
 		//生成文件名
 		String imgName="qrcode"+UUID.randomUUID()+".jpg";
-		//生成二维码图片
-		OutputStream os=new FileOutputStream(request.getSession().getServletContext().getRealPath("/images/"+imgName));
-		QrcodeUtil.encoderQRCode(str, Color.BLACK, os);
-		//返回图片路径
-		response.getWriter().write(imgName);
+		//生成二维码图片，并写到输出流中
+		OutputStream os=response.getOutputStream();
+		QrcodeUtil.encoderQRCode(str, Color.BLACK,os);
 	};
 }
